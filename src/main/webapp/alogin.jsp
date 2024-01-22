@@ -9,13 +9,20 @@
 <body>
 
 <form action="adminlogin" method="post">
-
 	
 	<label for="aemail">Admin Email:</label>
 	<input type="email" name="adminemail" id="aemail"><br><br>
 	<label for="apassword">Admin Password:</label>
 	<input type="password" name="adminpassword" id="apassword"><br><br>
 	<input type="submit">
+	
+	<% String message=(String)request.getAttribute("message"); %>
+	
+	<% if(message != null) { %>
+	
+	<h1><%=message %></h1>
+	
+	<%} %>
 	
 </form>
 

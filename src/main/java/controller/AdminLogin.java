@@ -30,6 +30,7 @@ public class AdminLogin extends HttpServlet
 			{
 				if(admin.getAdminpassword().equals(adminpassword))
 				{
+					req.setAttribute("movies", dao.GetAllMovies());
 					RequestDispatcher rd=req.getRequestDispatcher("ahome.jsp");
 					rd.include(req, resp);
 				}

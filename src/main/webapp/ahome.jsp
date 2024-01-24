@@ -29,16 +29,43 @@
 		margin-left: 210px;
 	}
 	body{
-		background-color: ivory;
+		/* background-color: ivory; */
+		  background-color: #328f8a;
+		  background-image: linear-gradient(45deg,#328f8a,#08ac4b);
 	}
 	h1{
 		color: crimson;
+		background-color: white;
+		display: inline-block;
+		margin-left: 600px;
+	}
+	.links{
+		text-decoration: none;
 	}
 	#addmovie{
 		background-color: blue;
 		color: white;
 		text-decoration: none;
 		padding: 10px;
+		display: inline-block; 
+		margin-top: 20px;
+		margin-left: 100px;
+	}
+	#addmovie:hover{
+		background-color: skyblue;
+		color: blue;
+	}
+	#logmovie{
+		background-color: red;
+		color: white;
+		border-radius:9px;
+		text-decoration: none;
+		padding: 15px;
+		display: inline-block;
+		margin-left: 750px;
+	}
+	#logmovie:hover {
+		background-color: black;
 	}
 </style>
 </head>
@@ -72,14 +99,16 @@
 				<td><%=m.getMovielanguage() %></td>
 				<%String base64image=new String(Base64.getEncoder().encode(m.getMovieimage())); %>
 				<td><img src="data:image/jpeg;base64,<%=base64image%>" height="150px" width="150px"></td>
-				<td><a href="deletemovie?movieid=<%=m.getMovieid()%>">Delete</a></td>
-				<td><a href="editmovie?movieid=<%=m.getMovieid()%>">Edit</a></td>
+				<td><a href="deletemovie?movieid=<%=m.getMovieid()%>" class="links">Delete</a></td>
+				<td><a href="editmovie?movieid=<%=m.getMovieid()%>" class="links">Edit</a></td>
 			</tr>
 			<%}%>
 		
 </table>
 
-<a href="addmovie.jsp" id="addmovie">Add Movie</a>
+<a href="addmovie.jsp" id="addmovie">Add Movie</a><br><br><br>
+
+<a href="logout" id="logmovie">Logout</a>
 
 </body>
 </html>

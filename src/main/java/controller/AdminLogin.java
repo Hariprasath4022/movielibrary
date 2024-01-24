@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Dao;
 import dto.Admin;
@@ -30,6 +31,8 @@ public class AdminLogin extends HttpServlet
 			{
 				if(admin.getAdminpassword().equals(adminpassword))
 				{
+					HttpSession session=req.getSession();
+					session.setAttribute("adminname", admin.getAdminname());
 					req.setAttribute("movies", dao.GetAllMovies());
 					RequestDispatcher rd=req.getRequestDispatcher("ahome.jsp");
 					rd.include(req, resp);
